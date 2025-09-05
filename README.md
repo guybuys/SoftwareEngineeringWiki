@@ -5,3 +5,5 @@ Dit is een verzamelplaats voor alle (beknopte) informatie die we kunnen gebruike
 
 1. [Introductie tot NumPy](Numpy.md)
 2. [Introductie tot Matplotlib](MatPlotLib.md)
+
+3. [Introductie tot Markdown](Markdown.md)
