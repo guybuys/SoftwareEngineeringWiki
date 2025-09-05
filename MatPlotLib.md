@@ -2,7 +2,7 @@
 
 Matplotlib is een Python-bibliotheek waarmee je data kunt plotten (**grafieken tekenen**).
 
-We gebruiken meestal het pyplot-gedeelte van Matplotlib, dat vaak wordt geïmporteerd als plt. Indien nodig, bekijk of herhaal de introductie van **numpy** om zeker te zijn dat je hier goed mee weg bent.
+We gebruiken meestal het pyplot-gedeelte van Matplotlib, dat vaak wordt geïmporteerd als plt. Indien nodig, bekijk of herhaal de **[Introductie tot NumPy](Numpy.md)** om zeker te zijn dat je hier goed mee weg bent.
 
 🔹 1. **Importeren**
 
