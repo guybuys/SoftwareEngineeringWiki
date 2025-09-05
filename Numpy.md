@@ -2,7 +2,7 @@
 
 NumPy is een Python-bibliotheek die speciaal gemaakt is voor rekenen met grote hoeveelheden data. Het werkt vooral met arrays. Dit zijn eigenlijk lijsten van getallen maar je kunt er *"wiskunde mee doen"* alsof het gewone getallen zijn.
 
-1. **Importeren**
+🔹 1. **Importeren**
 
 Eerst importeer je NumPy, meestal zo:
 
@@ -12,7 +12,7 @@ import numpy as np
 
 Hierdoor kun je alle functies van NumPy gebruiken met **np.** ervoor.
 
-2. **Arrays maken**
+🔹 2. **Arrays maken**
 
 Je kunt een array maken van een lijst:
 
@@ -24,7 +24,7 @@ print(type(a))   # <class 'numpy.ndarray'>
 
 **Arrays** lijken op **Python-lijsten**, maar je kunt er veel **sneller** en **efficiënter** mee rekenen.
 
-3. **Rekenwerk met arrays**
+🔹 3. **Rekenwerk met arrays**
 
 Met arrays kun je wiskunde direct op alle elementen tegelijk doen. Bekijk deze voorbeelden:
 ```python 
@@ -38,7 +38,7 @@ print(a ** 2)  # [1 4 9 16]
 
 Dus: je hoeft niet te *loopen* over elk element → NumPy doet dat voor je.
 
-4. **Speciale arrays**
+🔹 4. **Speciale arrays**
 
 NumPy kan snel "standaard arrays" maken:
 ```python 
@@ -49,7 +49,7 @@ np.arange(0, 10)  # [0 1 2 3 4 5 6 7 8 9]
 # linspace gebruik je zo: np.linspace(<eerste getal>, <laatste getal>, <aantal getallen>) 
 np.linspace(0, 1, 5)  # [0.   0.25 0.5  0.75 1. ]  (5 getallen van 0 tot 1)
 ```
-5. **Statistiek en functies**
+🔹 5. **Statistiek en functies**
 
 Veel handige functies werken direct op arrays:
 ```python
@@ -67,7 +67,7 @@ x = np.linspace(0, 2*np.pi, 5)
 print(np.sin(x))   # sinus van alle waarden tegelijk
 ```
 
-6. **Algemeen rekenwerk**
+🔹 6. **Algemeen rekenwerk**
 
 ## Het getal **π** 
 In NumPy kun je **π** direct gebruiken als **np.pi**.
