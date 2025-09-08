@@ -104,13 +104,30 @@ Met > aan het begin van de regel:
 ## 6. **Formules (in Jupyter / GitHub)**
 
 Gebruik **LaTeX-stijl** met `$...$`:
+
+
+***Inline***:  
+`$E = mc^2$` 
+
+**Resultaat:**
+
+$E = mc^2$ 
+
+***Blok***:
+
 ```markdown
-De formule is: $z = \frac{\Delta p}{\rho g}$
+De formule is: 
+$$
+z = \frac{\Delta p}{\rho g}
+$$
 ```
 
 **Resultaat:** 
 
-De formule is: $z = \frac{\Delta p}{\rho g}$
+De formule is:
+$$
+z = \frac{\Delta p}{\rho g}
+$$
 
 ℹ️ ️**Niet** alle Markdown-omgevingen ondersteunen formules.
 
@@ -128,4 +145,48 @@ Gebruik een backslash-escape:
 \*niet cursief\*
 
 
-✅ Zo heb je de basis om netjes uitleg en oefeningen in Markdown te schrijven.
+# 🛠️ Tools & editors voor Markdown
+🔹 1. **Simpele teksteditors** (met preview)
+
+  - VS Code (gratis, Windows/Mac/Linux)
+ heel populair, ingebouwde Markdown preview *(Ctrl+Shift+V)*.
+
+  - Atom (open source, GitHub)
+
+  - Sublime Text (lichtgewicht, snel, cross-platform)
+
+🔹 2. **Online editors**
+
+  - StackEdit (https://stackedit.io
+) → online editor, direct preview.
+
+  - Dillinger (https://dillinger.io
+) → drag & drop bestanden, export naar PDF/HTML.
+
+  - HackMD / CodiMD → samenwerken aan Markdown-documenten (vergelijkbaar met Google Docs).
+
+🔹 3. **Notitie-apps**
+
+  - Obsidian (Markdown als database voor notities, heel krachtig voor kennismanagement).
+
+  - Typora (minimalistische editor, what you see is what you get voor Markdown).
+
+  - Joplin (open-source notitie-app, synchronisatie mogelijk, gebaseerd op Markdown).
+
+  - Notion (niet puur Markdown, maar ondersteunt veel Markdown-syntax).
+
+🔹 4. **Voor programmeurs en data analyse**
+
+  - Jupyter Notebooks / JupyterLite →
+ *Perfect voor uitleg en documentatie naast code.*
+
+  - GitHub / GitLab / Bitbucket →
+ *Markdown* is dé standaard voor documentatie (README.md).
+
+  - RStudio → vooral in data science, met RMarkdown (uitbreiding voor rapporten).
+
+🔹 5. **Converteren en exporteren**
+
+  - Pandoc (command-line tool om Markdown om te zetten naar PDF, Word, HTML, enz.)
+
+  - Mark Text (lichte open-source editor met exportmogelijkheden).
