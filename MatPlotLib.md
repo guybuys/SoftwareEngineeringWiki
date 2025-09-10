@@ -44,7 +44,7 @@ plt.show()
 🔹 4. **Meerdere reeksen in één grafiek**
 
 ```python 
-# Maak een numpy array tussen 0 en 2 π met 100 punten
+# Maak een numpy array tussen 0 en 2π met 100 punten
 x = np.linspace(0, 2*np.pi, 100)  
 plt.plot(x, np.sin(x), label="sin(x)")
 plt.plot(x, np.cos(x), label="cos(x)")
