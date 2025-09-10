@@ -82,6 +82,32 @@ plt.show()
 ```
 ![Voorbeeld plot](images/mpl_fig3.png)
 
+Met een ***scatterplot*** is het ook mogelijk om een tekening te maken op basis van *x* en *y coordinaten*.
+In onderstaande voorbeeld maken we een *kleurencirkel*:
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Maak hoekwaarden
+angles = np.linspace(0, 2*np.pi, 360) # maakt array van 360 punten aan tussen 0 en 2π radialen
+hues = np.linspace(0, 1, 360) # maakt array van 360 punten aan tussen 0 en 1
+colors = plt.cm.hsv(hues) # maakt array van 360 kleuren op basis van de hue aan
+
+# --- Wiskundige conventie ---
+x = np.cos(angles)
+y = np.sin(angles)
+
+plt.scatter(x, y, c=colors, s=50) # s is grote van de stip, hier 50 "punten"
+
+ax = plt.gca()              # huidige assen (axes) ophalen
+ax.set_aspect("equal")      # aspect ratio = 1:1 dus de afstand op x en y as is dezelfde
+plt.axis("off")             # om geen assen met getallen te tekenen
+plt.title("Wiskundige conventie: 0° rechts, CCW")
+
+plt.show()
+```
+![Kleurcirkel](images/mpl_kleurcirkel.png)
+
 🔹 7. **Histogram**
 ```python 
 data = np.random.normal(0, 1, 1000)  # 1000 getallen ~ normaal verdeeld
