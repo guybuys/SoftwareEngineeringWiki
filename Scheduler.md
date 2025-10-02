@@ -17,7 +17,13 @@ Hierdoor lijkt het alsof alles tegelijk gebeurt, terwijl de processor eigenlijk 
 - Je kunt controleren of een taak te lang duurt (en eventueel een waarschuwing geven).
 - Je kunt taken laten wachten op een externe gebeurtenis (zoals een interrupt van een GPS-module).
 
-## Uitleg bij de voorbeeldcode
+## Voorbeeld code
+
+In [`scheduler_example.py`](https://github.com/guybuys/SoftwareEngineeringWiki/blob/main/scheduler_example.py) zie je hoe je de scheduler gebruikt. De GPS-taak wacht op een *vlag* die door een *interrupt* gezet wordt. In het voorbeeld wordt die vlag handmatig gezet met `uart_interrupt_handler()`.
+
+Je kunt de scheduler makkelijk uitbreiden met je eigen taken en voorwaarden!
+
+###  Uitleg bij de voorbeeldcode
 
 In het voorbeeld worden vier taken toegevoegd aan de scheduler:
 - **GPS**: wordt uitgevoerd als er data is ontvangen via een interrupt én minstens 1 seconde sinds de vorige run.
@@ -27,18 +33,10 @@ In het voorbeeld worden vier taken toegevoegd aan de scheduler:
 
 Elke taak is een aparte functie. De scheduler kijkt steeds of het tijd is om een taak uit te voeren (en of de condition True is, als die er is). Als een taak te lang duurt, krijg je een waarschuwing.
 
-### Dummy voorbeeld
 
-In `scheduler_example.py` zie je hoe je de scheduler gebruikt. De GPS-taak wacht op een *vlag* die door een *interrupt* gezet wordt. In het voorbeeld wordt die vlag handmatig gezet met `uart_interrupt_handler()`.
+## Scheduler code
+De *broncode* van de scheduler staat hier: [`scheduler.py`](https://github.com/guybuys/SoftwareEngineeringWiki/blob/main/scheduler.py). De leerlingen van de richting **ICW** kunnen vlot werken met klassen dus voor hen zou de code begrijpbaar moeten zijn. Voor de anderen is het vooral belangrijk dat je het *concept* van een scheduler begrijpt en dat je er gebruik van kunt maken in je eigen projecten. Vergeet niet de broncode toe te voegen onder hetzelfde *path* van je eigen code. Dit bestand moet dus ook op de **ESP32** of **raspberry pi pico** gezet worden.
 
-Je kunt de scheduler makkelijk uitbreiden met je eigen taken en voorwaarden!
-
----
-
-## Voorbeeldcode
-Zie het bestand `scheduler_example.py` voor een dummy implementatie.
-
----
 
 ## Meer leren?
 Experimenteer met verschillende intervallen en taken. Probeer bijvoorbeeld een LED te laten knipperen, een sensor uit te lezen of data te versturen op vaste tijdstippen.
