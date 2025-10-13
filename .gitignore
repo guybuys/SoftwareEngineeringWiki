@@ -1,0 +1,2 @@
+# Ignore persoonlijke MQTT config
+mqtt_config.py
