@@ -6,4 +6,6 @@ Dit is een verzamelplaats voor alle (beknopte) informatie die we kunnen gebruike
 1. [Introductie tot NumPy](Numpy.md)
 2. [Introductie tot Matplotlib](MatPlotLib.md)
 3. [Introductie tot Markdown](Markdown.md)
-4. [Scheduler en multitasking in MicroPython](Scheduler.md)
+4. [Introductie tot MQTT](mqtt.md)
+5. [Introductie tot Decorators](Decorators.md)
+6. [Scheduler en multitasking in MicroPython](Scheduler.md)
