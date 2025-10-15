@@ -8,4 +8,5 @@ Dit is een verzamelplaats voor alle (beknopte) informatie die we kunnen gebruike
 3. [Introductie tot Markdown](Markdown.md)
 4. [Introductie tot MQTT](mqtt.md)
 5. [Introductie tot Decorators](Decorators.md)
-6. [Scheduler en multitasking in MicroPython](Scheduler.md)
+6. [Introductie tot Finite State Machine](finite_state_machine.md)
+7. [Scheduler en multitasking in MicroPython](Scheduler.md)
