@@ -49,21 +49,30 @@ Hieronder zie je een FSM die werkt op de MBOT2-robot. De robot kan in verschille
 ```python
 import event, time, cyberpi, mbot2, mbuild
 # initialize variables in global space
-state = 0
+state = "stop"
+previous_state = "unknown"
 deviation = 0
 line_sensors = 0
 kp = 0.3
 base_power = 30
+battery_power = 0
 
 @event.start
 def on_start():
-    global deviation, state, line_sensors, kp, base_power
-    state = "stop"
+    global deviation, state, line_sensors, kp, base_power, battery_power
     cyberpi.console.clear()
     while True:
+        # Print state if it has changed
+        if state != previous_state:
+            previous_state = state
+            cyberpi.console.println(state)
         if state == 'stop':
             mbot2.EM_stop("ALL")
-            cyberpi.console.println(state)
+            if battery_power != cyberpi.get_battery():
+                battery_power = cyberpi.get_battery()
+                cyberpi.console.print("Battery: ")
+                cyberpi.console.print(battery_power)
+                cyberpi.console.println("%")
 
         elif state == 'line_follower':
             deviation = mbuild.quad_rgb_sensor.get_offset_track(1)
@@ -76,8 +85,8 @@ def on_start():
                 right_power = -(base_power + kp * deviation)
                 mbot2.drive_power(left_power, right_power)
         elif state == 't_shape':
-                cyberpi.console.println(state)
-                # T-shape acties hier ...
+                # T-shape acties here ...
+                pass
 
         else:
             # UNKNOWN STATE
