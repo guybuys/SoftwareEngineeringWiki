@@ -15,10 +15,7 @@ Gebruik:
 import paho.mqtt.client as mqtt
 import json
 import sys
-from mqtt_config import BROKER_ADDRESS
-
-SUB_TOPIC = "test/ontvangst"  # Hardcoded subscribe topic
-DEFAULT_PUB_TOPIC = "test/verzenden"  # Default publish topic
+from mqtt_config import BROKER_ADDRESS, SUB_TOPIC, DEFAULT_PUB_TOPIC
 
 def on_connect(client, userdata, flags, rc):
     print(f"Verbonden met broker ({BROKER_ADDRESS}), status: {rc}")
