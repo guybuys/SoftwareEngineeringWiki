@@ -4,20 +4,22 @@ Een finite state machine (eindige toestandsmachine) is een model dat beschrijft 
 
 ## Grafische voorstelling
 
-Hier bekijken we een grafische voorstelling van een automaat:
+Hier bekijken we een grafische voorstelling van een **automaat** zoals drank- of snackautomaat:
 - De cirkels zijn de **toestanden** of **states**.
 - De pijlen zijn de **gebeurtenissen** of **events**.
 
 ![Vending-machine](images/fsm_automaat.png)
 
-## Verkeerslicht 
-Denk aan een **verkeerslicht**. Het kan in de **toestand** `groen`, `oranje` of `rood` zijn. Op basis van een *timer* of *knop* verandert het van toestand.
+---
+
+## Voorbeeld in python 
+In dit voorbeeld inspireren we ons op een **verkeerslicht**, omdat we die werking goed kennen. Het kan in de **toestand** `groen`, `oranje` of `rood` zijn. Op basis van een *timer* of *knop* verandert het van toestand.
 
 ---
 
 **Simpele Python-implementatie**
 
-Hieronder een voorbeeld van een **FSM** voor een verkeerslicht, zonder klassen:
+Hieronder een voorbeeld van een implementatie van een **FSM** voor een verkeerslicht, simpel zonder klassen, met enkel gebruikersinput en zonder timer:
 
 ```python
 state = "groen"
@@ -40,11 +42,15 @@ while True:
 - Met een `while`-loop en `if/elif`-structuur bepaal je de volgende toestand.  
 - Je kunt dit uitbreiden met meer toestanden en regels.
 
+> We kunnen een **FSM** op een zeer gemakkelijke manier implementeren met niet meer dan **if** en **while**, allemaal dingen die we al kennen.
+
 ---
 
 ## Voorbeeld: FSM op de MBOT2 (CyberPi)
 
-Hieronder zie je een FSM die werkt op de MBOT2-robot. De robot kan in verschillende toestanden zijn, zoals 'stop', 'line_follower' en 't_shape'. De toestand verandert door knoppen op de CyberPi of door sensorinput.
+Hieronder zie je een FSM die werkt op de MBOT2-robot. De robot kan in verschillende toestanden zijn, zoals `stop`, `line_follower` en `t_shape`. De toestand verandert door knoppen op de CyberPi of door sensorinput. 
+
+Zo zal het indrukken van de *stop knop* (⏹️) de *state* veranderen naar `stop`. Wanneer de *state* `stop` is, zal de *play knop* (▶️) het **FSM** naar de *state* `line_follower` brengen en zal de MBOT2 beginnen te rijden. Wanneer de MBOT2 over een **T-vorm** rijdt (en de 4 sensoren *zwart* lezen), zal de *state* veranderen naar `t_shape`. Momenteel zal de code van `t-shape` enkel zijn *state* op het scherm zetten en de *state* terug veranderen naar `stop`. 
 
 ```python
 import event, time, cyberpi, mbot2, mbuild
