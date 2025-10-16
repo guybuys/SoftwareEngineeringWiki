@@ -8,7 +8,7 @@ Hier bekijken we een grafische voorstelling van een automaat:
 - De cirkels zijn de **toestanden** of **states**.
 - De pijlen zijn de **gebeurtenissen** of **events**.
 
-![Vending-machine](https://www.softwareideas.net/i/DirectImage/3116/an-example-of-finite-state-machine-diagram--vending-machine)
+![Vending-machine](images/fsm_automaat.png)
 
 ## Verkeerslicht 
 Denk aan een **verkeerslicht**. Het kan in de **toestand** `groen`, `oranje` of `rood` zijn. Op basis van een *timer* of *knop* verandert het van toestand.
