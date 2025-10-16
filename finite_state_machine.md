@@ -64,10 +64,15 @@ def on_start():
     while True:
         # Print state if it has changed
         if state != previous_state:
+            new_state = True
             previous_state = state
-            cyberpi.console.println(state)
+        else:
+            new_state = False
+
         if state == 'stop':
             mbot2.EM_stop("ALL")
+            if new_state:
+                cyberpi.console.println(state)
             if battery_power != cyberpi.get_battery():
                 battery_power = cyberpi.get_battery()
                 cyberpi.console.print("Battery: ")
@@ -85,23 +90,27 @@ def on_start():
                 right_power = -(base_power + kp * deviation)
                 mbot2.drive_power(left_power, right_power)
         elif state == 't_shape':
+                if new_state:
+                    cyberpi.console.println(state)
                 # T-shape acties here ...
-                pass
-
+                state = "stop"
         else:
             # UNKNOWN STATE
-            pass
+            if new_state:
+                cyberpi.console.println("Unknown state:")
+                cyberpi.console.println(state)
 
 @event.is_press('a')
-def is_btn_press():
+def is_btn_press_a():
     global state
     state = "stop"
 
 @event.is_press('b')
-def is_btn_press1():
+def is_btn_press_b():
     global state
-    state = "line_follower"
-    cyberpi.console.println(state)
+    if state == "stop":
+        state = "line_follower"
+        cyberpi.console.println(state)
 ```
 
 **Uitleg:**
