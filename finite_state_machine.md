@@ -65,7 +65,7 @@ battery_power = 0
 
 @event.start
 def on_start():
-    global deviation, state, line_sensors, kp, base_power, battery_power
+    global deviation, state, line_sensors, kp, base_power, battery_power, previous_state
     cyberpi.console.clear()
     while True:
         # Print state if it has changed
