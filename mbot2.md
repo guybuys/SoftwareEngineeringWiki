@@ -14,6 +14,7 @@ Deze data moet nog worden nagekeken. Sommige meetdata bleek niet *consistent* te
 |mbuild.quad_rgb_sensor.get_line_sta("all", 1)|0..15|≈ 600	|444	|5 558	|4 bits van de lijnsensor|
 |mbuild.quad_rgb_sensor.get_green_sta("all", 1)	|0..15|≈ 1 100	|862	|2 769	|4 bits van de groenherkenning|
 |mbuild.quad_rgb_sensor.get_custom_sta("all", 1)|0..15|≈ 37 300	|32 821	|44 471	|4 bits van de “user-defined”-kleurherkenning|
+|mbuild.ultrasonic2.get(1)|0..300.0| x | 600 | 1000 |Afstand ultrasoon|
 |cyberpi.led.on(r, g, b, 1) |rgb|≈ 2 500	|647	|6 462	|LED-aansturing|
 |cyberpi.get_battery()|0..100|≈ 20 000	| -	|-	|Batterij percentage opvragen|
 
