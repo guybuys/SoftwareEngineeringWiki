@@ -118,6 +118,8 @@ Dit zorgt ervoor dat alle pakketten en beveiligingsupdates actueel zijn.
 ### 2. Installeer vereiste pakketten
 
 Installeer de basistools om Python-pakketten te bouwen.
+> Ik ben niet zeker of dit moet, ik herinner me niet dat ik dat gedaan heb ...
+
 ``` bash
 sudo apt install python3-venv python3-pip cmake build-essential -y
 sudo apt install python3-opencv python3-numpy -y
@@ -126,6 +128,15 @@ sudo apt install python3-opencv python3-numpy -y
 python3-venv maakt het mogelijk een virtuele omgeving te maken.
 cmake en build-essential zijn nodig om C-extensies te compileren.
 python3-opencv en python3-numpy zijn vooraf vereisten voor pupil-apriltags.
+
+### 2. Essentiële build-tools installeren 
+
+> Deze herinner ik me wel, weet alleen niet precies meer waar, wanneer en waarom ik het moest doen. 
+
+Dit is nodig zodat Python pakketten zoals pupil-apriltags überhaupt kunnen bouwen:
+``` bash
+sudo apt install -y python3-dev python3-pip python3-setuptools python3-wheel
+```
 
 ### 3. Maak een virtuele Python omgeving aan
 
