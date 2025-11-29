@@ -101,3 +101,134 @@ Daarna testen:
 python3 -c "import paho.mqtt.client as mqtt; print('OK')"
 ```
 
+## Installatie van pupil-apriltags op een Raspberry Pi
+
+> Hier heb ik verschrikkelijk lang mee geworsteld. Het is mogelijk dat ik niet alle tussenstappen goed genoteerd heb hier. Ik heb in elk geval eerst OpenCV en numpy geinstalleerd. En daarna pas met de virtuele Python omgeving omdat ik de error `error: externally-managed-environment` kreeg. Dit mislukte vaak en ik ben vaak opnieuw begonnen met een nieuwe virtuele omgeving te maken. 
+
+### 1. Update je systeem
+
+Zorg dat je Raspberry Pi up-to-date is.
+``` bash
+sudo apt update
+sudo apt upgrade -y
+```
+
+Dit zorgt ervoor dat alle pakketten en beveiligingsupdates actueel zijn.
+
+### 2. Installeer vereiste pakketten
+
+Installeer de basistools om Python-pakketten te bouwen.
+``` bash
+sudo apt install python3-venv python3-pip cmake build-essential -y
+sudo apt install python3-opencv python3-numpy -y
+```
+
+python3-venv maakt het mogelijk een virtuele omgeving te maken.
+cmake en build-essential zijn nodig om C-extensies te compileren.
+python3-opencv en python3-numpy zijn vooraf vereisten voor pupil-apriltags.
+
+### 3. Maak een virtuele Python omgeving aan
+
+Dit voorkomt conflicten met systeem-pakketten.
+``` bash
+python3 -m venv --system-site-packages ~/apriltag_env
+```
+--system-site-packages zorgt ervoor dat alle Python-pakketten die al op het systeem staan (zoals python3-numpy en python3-opencv) beschikbaar blijven in de virtuele omgeving.
+
+Daardoor hoef je deze zware pakketten niet opnieuw te installeren binnen de venv. Alleen pupil-apriltags wordt dan nieuw geïnstalleerd.
+
+Hierdoor wordt een eigen geïsoleerde Python-omgeving aangemaakt.
+
+### 4. Activeer de virtuele omgeving
+``` bash
+source ~/apriltag_env/bin/activate
+```
+
+Je ziet nu (apriltag_env) voor je prompt. Alle Python-installaties gebeuren nu in deze omgeving.
+
+### 5. Zorg voor extra geheugen (optioneel, bij RPi Zero)
+
+Omdat de installatie van pupil-apriltags veel RAM gebruikt, kun je de swapfile vergroten:
+
+Versie van ChatGPT:
+``` bash
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+```
+Die eerste stap deed ik niet of werkte niet. Wat ik deed:
+``` bash
+sudo swapoff -a
+sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
+``` 
+Dat gaf iets van:
+```
+2048+0 records in
+2048+0 records out
+2147483648 bytes (2.1 GB, 2.0 GiB) copied, 110.12 s, 19.5 MB/s
+```
+Daarna deed ik
+``` bash
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+```
+Dit gaf:
+```
+Setting up swapspace version 1, size = 2 GiB (2147479552 bytes)
+no label, UUID=e1a70af4-36e4-4719-803d-ae08d2ef2bbe
+```
+Daarna deed ik:
+``` bash
+sudo swapon /swapfile
+sudo nano /etc/fstab
+```
+In die file voegde ik dit onderaan toe:
+`/swapfile none swap sw 0 0`
+
+Daarna **Ctrl +  O** om te saven en **Ctrl + X** om te verlaten.
+``` bash
+free -h
+```
+Geeft dan:
+```
+               total        used        free      shared  buff/cache   available
+Mem:           425Mi       121Mi       183Mi       3.2Mi       177Mi       304Mi
+Swap:          2.0Gi          0B       2.0Gi
+```
+
+De swapfile dient als tijdelijk extra geheugen. Zonder voldoende geheugen kan de installatie mislukken, wat bij mij dan ook gebeurde: `cc: fatal error: Killed signal terminated program cc1`, het programma werd gekilld door gebrek aan RAM.
+
+### 6. Installeer pupil-apriltags
+``` bash
+pip install --no-cache-dir pupil-apriltags
+```
+
+--no-cache-dir zorgt dat er geen oude buildbestanden gebruikt worden, wat kan helpen bij beperkte opslag.
+
+Op de RPi Zero kan dit enkele minuten duren, omdat de C-extensies gecompileerd worden.
+
+### 7. Controleer de installatie
+
+Maak een testbestand test_apriltags.py:
+``` python
+import numpy
+import cv2
+from pupil_apriltags import Detector
+
+print("Alles is aanwezig!")
+```
+
+Voer het script uit:
+``` bash
+python test_apriltags.py
+```
+
+Als je "Alles is aanwezig!" ziet, is alles correct geïnstalleerd.
+
+### 8. Deactiveer de virtuele omgeving (optioneel)
+``` bash
+deactivate
+```
+
+Je keert terug naar het systeem-Python. Activeer de omgeving opnieuw met `source ~/apriltag_env/bin/activate` als je later aan dit project werkt.
