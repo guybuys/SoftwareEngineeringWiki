@@ -60,3 +60,44 @@ Controleer of het nieuwe netwerk netjes in de lijst staat:
 nmcli connection show
 ```
 ---
+## OpenCV installeren
+
+OpenCV (Open Source Computer Vision Library) is een open-source bibliotheek voor computervisie en machine learning. Het bevat meer dan 2500 geoptimaliseerde algoritmes voor taken zoals:
+
+- Beeld- en videoverwerking
+- Objectdetectie en -herkenning
+- Gezichtsdetectie en -herkenning
+- Bewegingstracking
+- 3D-reconstructie
+- Detectie en matching van kenmerken
+- Camerakalibratie
+
+Het is geschreven in C++ maar heeft bindings voor Python, Java en andere talen. OpenCV wordt veel gebruikt in robotica, autonome voertuigen, augmented reality en verschillende AI-toepassingen. Het is platformonafhankelijk en werkt op Windows, Linux, macOS, Android en iOS.
+
+Voor OpenCV te installeren, moet je dit uitvoeren:
+``` bash
+sudo apt update
+sudo apt install python3-opencv
+```
+Controleer daarna:
+``` bash
+python3 -c "import cv2; print(cv2.__version__)"
+```
+
+Je zou iets krijgen als: `4.10.0`
+
+## Installeer paho-mqtt (Python 3)
+
+Voor het geval dat je mqtt nodig hebt.
+
+Voer uit:
+``` bash
+sudo apt update
+sudo apt install python3-paho-mqtt
+```
+
+Daarna testen:
+``` bash
+python3 -c "import paho.mqtt.client as mqtt; print('OK')"
+```
+
