@@ -59,6 +59,25 @@ Controleer of het nieuwe netwerk netjes in de lijst staat:
 ``` bash
 nmcli connection show
 ```
+
+In het geval dat je een *hotspot* wil toevoegen, moet je de **prioriteit** aanpassen om zo te zorgen dat er eerst geprobeerd wordt om met de hotspot te verbinden, alvorens met andere netwerken te verbinden.
+
+Hiervoor kan je met **NetworkManager** een prioriteit instellen:
+
+NetworkManager kiest immers niet op “volgorde in een lijst”, maar op prioriteit:
+
+- Hogere waarde = eerst proberen
+- Standaard = 0
+- Negatieve waarden = liever niet
+
+Stel bijvoorbeeld:
+
+``` bash
+sudo nmcli connection modify Hotspot connection.autoconnect-priority 10
+sudo nmcli connection modify TSM-Graad23 connection.autoconnect-priority 0
+```
+
+Of expliciet “laatst”:
 ---
 ## OpenCV installeren
 
