@@ -10,6 +10,7 @@ Dit is een verzamelplaats voor alle (beknopte) informatie die we kunnen gebruike
 5. [Introductie tot Decorators](Decorators.md)
 6. [Introductie tot Finite State Machine](finite_state_machine.md)
 7. [Scheduler en multitasking in MicroPython](Scheduler.md)
+8. [Pin interrupt in MicroPython (ESP32)](pin_interrupt_esp32.md)
 
 ## MBOT2
 
