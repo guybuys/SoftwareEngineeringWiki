@@ -12,7 +12,7 @@ import numpy as np
 
 Hierdoor kun je alle functies van NumPy gebruiken met **np.** ervoor.
 
-🔹 2. **Arrays maken**
+🔹 2. **Arrays maken en toevoegen aan een array**
 
 Je kunt een array maken van een lijst:
 
@@ -20,6 +20,18 @@ Je kunt een array maken van een lijst:
 a = np.array([1, 2, 3, 4])
 print(a)         # [1 2 3 4]
 print(type(a))   # <class 'numpy.ndarray'>
+#  een getal toevoegen aan een array
+a = np.append(a, 5)
+#  meerdere getallen toevoegen aan een array
+a = np.append(a, [6, 7, 8])
+```
+**Let op: anders dan bij een python-lijst, `append()` verandert de originele array niet, je moet het resultaat opslaan**
+
+```python
+# een lege array
+b = np.array([])
+print(b)         # []
+print(type(b))   # <class 'numpy.ndarray'>
 ```
 
 **Arrays** lijken op **Python-lijsten**, maar je kunt er veel **sneller** en **efficiënter** mee rekenen.
