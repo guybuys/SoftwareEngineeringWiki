@@ -6,12 +6,13 @@ Dit is een verzamelplaats voor alle (beknopte) informatie die we kunnen gebruike
 1. [Introductie tot NumPy](Numpy.md)
 2. [Introductie tot Matplotlib](MatPlotLib.md)
 3. [Introductie tot Markdown](Markdown.md)
-4. [Introductie tot MQTT](mqtt.md)
-5. [Introductie tot Decorators](Decorators.md)
-6. [Introductie tot Finite State Machine](finite_state_machine.md)
-7. [Scheduler en multitasking in MicroPython](Scheduler.md)
-8. [Pin interrupt in MicroPython (ESP32)](pin_interrupt_esp32.md)
-9. [Introductie tot kleurtoon](kleurtoon.md)
+4. [Introductie tot reproduceerbare python projecten](venv.md)
+5. [Introductie tot MQTT](mqtt.md)
+6. [Introductie tot Decorators](Decorators.md)
+7. [Introductie tot Finite State Machine](finite_state_machine.md)
+8. [Scheduler en multitasking in MicroPython](Scheduler.md)
+9. [Pin interrupt in MicroPython (ESP32)](pin_interrupt_esp32.md)
+10. [Introductie tot kleurtoon](kleurtoon.md)
 
 ## MBOT2
 
