@@ -19,7 +19,7 @@ Dit is een verzamelplaats voor alle (beknopte) informatie die we kunnen gebruike
 Code voorbeelden en pogingen tot reverse engineeren van MBOT2 methods kan je hier vinden. Hopelijk helpt het met je MBOT2 projecten.
 
 - [Reverse engineered MBOT2 documentatie](mbot2.md)
-- [Officiele(re) documentatie](https://www.yuque.com/makeblock-help-center-en/mcode)
+- [Officiële(re) documentatie](https://www.yuque.com/makeblock-help-center-en/mcode)
 
 ## Raspberry Pi
 
