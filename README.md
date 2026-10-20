@@ -21,6 +21,8 @@ Code voorbeelden en pogingen tot reverse engineeren van MBOT2 methods kan je hie
 - [Reverse engineered MBOT2 documentatie](mbot2.md)
 - [Officiële(re) documentatie](https://www.yuque.com/makeblock-help-center-en/mcode)
 
+- [Ringbuffer](mbot2_ringbuffer.md)
+
 ## Raspberry Pi
 
 Informatie en voorbeelden voor de **Raspberry Pi**.
