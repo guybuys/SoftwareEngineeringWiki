@@ -27,6 +27,11 @@ MqttVerbinding mqtt;
 Adafruit_BMP280 bmp;
 
 bool sensorOk = false;
+unsigned long laatsteMeting = 0;
+
+float temperatuur;
+float luchtdruk;
+
 // Zet je globale variabelen hier
 
 void setup() {
@@ -72,6 +77,14 @@ int maakBericht(char *bericht, size_t lengte) {
   return snprintf(bericht, lengte,
                   "{\"temp\":%.1f,\"luchtdruk\":%.1f}",
                   temperatuur, luchtdruk);
+}
+
+void leesSensor() {
+  // Deze code is niet juist, pas aan!
+  temperatuur += random(-2, 3) / 10.0;
+  luchtdruk += random(-4, 5) / 10.0;
+  temperatuur = constrain(temperatuur, 18.0, 26.0);
+  luchtdruk = constrain(luchtdruk, 1000.0, 1025.0);
 }
 
 void publiceerMeting() {
