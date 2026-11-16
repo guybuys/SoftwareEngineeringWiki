@@ -81,6 +81,7 @@ class MqttVerbinding {
     }
     mqtt.poll();
     toonStatus();
+    verstuurInfo();
   }
 
   // Zet een uitroepteken op de matrix. De verbinding blijft op de achtergrond.
@@ -114,6 +115,7 @@ class MqttVerbinding {
   MqttClient mqtt;
   ArduinoLEDMatrix matrix;
   bool eigenFout = false;
+  bool infoVerstuurd = false;
   Toestand getoond = Niets;
 
   void verbindWifi() {
@@ -158,6 +160,71 @@ class MqttVerbinding {
 
     Serial.println("MQTT verbonden");
     toonStatus();
+    verstuurInfo();
+  }
+
+  void verstuurInfo() {
+    if (infoVerstuurd || !mqtt.connected()) {
+      return;
+    }
+
+    char topic[64];
+    if (!maakInfoTopic(topic, sizeof(topic))) {
+      Serial.println("Info-topic past niet.");
+      return;
+    }
+
+    char naam[96];
+    char leden[160];
+    jsonEscape(naam, sizeof(naam), STATION_NAAM);
+    jsonEscape(leden, sizeof(leden), TEAMLEDEN);
+
+    char bericht[320];
+    int lengte = snprintf(
+        bericht, sizeof(bericht),
+        "{\"naam\":\"%s\",\"leden\":\"%s\",\"breedte\":%.6f,\"lengte\":%.6f}",
+        naam, leden, BREEDTEGRAAD, LENGTEGRAAD);
+    if (lengte <= 0 || lengte >= (int)sizeof(bericht)) {
+      Serial.println("Info-bericht past niet.");
+      return;
+    }
+
+    if (!mqtt.beginMessage(topic, true)) {
+      Serial.println("Info-bericht niet gestart.");
+      return;
+    }
+    mqtt.print(bericht);
+    if (!mqtt.endMessage()) {
+      Serial.println("Info-bericht niet verstuurd.");
+      return;
+    }
+
+    infoVerstuurd = true;
+    Serial.print(topic);
+    Serial.print(" ");
+    Serial.println(bericht);
+  }
+
+  bool maakInfoTopic(char *topic, size_t lengte) {
+    const char *suffix = "/meting";
+    size_t topicLengte = strlen(MQTT_TOPIC);
+    size_t suffixLengte = strlen(suffix);
+    if (topicLengte >= suffixLengte &&
+        strcmp(MQTT_TOPIC + topicLengte - suffixLengte, suffix) == 0) {
+      return snprintf(topic, lengte, "%.*s/info", (int)(topicLengte - suffixLengte), MQTT_TOPIC) < (int)lengte;
+    }
+    return snprintf(topic, lengte, "%s/info", MQTT_TOPIC) < (int)lengte;
+  }
+
+  void jsonEscape(char *uit, size_t uitLengte, const char *in) {
+    size_t n = 0;
+    while (*in != '\0' && n + 2 < uitLengte) {
+      if (*in == '"' || *in == '\\') {
+        uit[n++] = '\\';
+      }
+      uit[n++] = *in++;
+    }
+    uit[n] = '\0';
   }
 
   void toonStatus() {
