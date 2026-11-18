@@ -35,5 +35,5 @@ Informatie en voorbeelden voor de **Raspberry Pi**.
 
 Dit deel is een aanvulling op het hoofdstuk van **Bomen** in eTeacher, meer gericht op oefeningen.
 
-1. [Oefeningen bomen](bomen_oefenreeks.md)
+1. [Oefeningen bomen](bomen_oefeningen.md)
    
