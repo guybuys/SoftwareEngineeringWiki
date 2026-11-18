@@ -30,3 +30,10 @@ Informatie en voorbeelden voor de **Raspberry Pi**.
 1. [Headless gebruik](headless_rpi.md)
 2. [Onder constructie](RpiZero2w.md) 
 3. [Lijst met gebruikte devices](rpi_list.md)
+
+## Bomen
+
+Dit deel is een aanvulling op het hoofdstuk van **Bomen** in eTeacher, meer gericht op oefeningen.
+
+1. [Oefeningen bomen](bomen_oefenreeks.md)
+   
