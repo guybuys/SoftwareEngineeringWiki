@@ -248,7 +248,7 @@ print(bevat(boom, 5))   # False
 
 Schrijf `maximum(knoop)` die de grootste waarde in de boom teruggeeft. Je mag veronderstellen dat de boom niet leeg is. *Let op:* een knoop kan een kind missen.
 
-*Tip:* `min oneindig` schrijf je in python als `float('-inf')`
+> *Tip:* `min oneindig` schrijf je in python als `float('-inf')`
 ```python
 print(maximum(boom))   # 14
 ```
