@@ -615,7 +615,7 @@ print(h.is_leeg()) # False
 Denk daarna na: **een gebruiker van `MinHeap` hoeft niet te weten dat er een lijst achter zit** (dat is de *implementatie*). Hij heeft enkel `push` en `pop` nodig (de *interface*). Zou je de heap ook kunnen implementeren met `Knoop`-objecten, zonder dat de gebruiker iets merkt? Waarom kiest men toch meestal voor de lijst?
 
 ---
-
+<!--
 ## Bonus: ideeën om verder te gaan
 
 - Een functie `is_zoekboom(knoop)` die controleert of een boom aan de zoekboom-eigenschap voldoet. *Opgelet:* het volstaat niet om enkel de kinderen te vergelijken met hun ouder!
@@ -623,3 +623,4 @@ Denk daarna na: **een gebruiker van `MinHeap` hoeft niet te weten dat er een lij
 - Een **trie** (voor woorden en autocomplete): een boom waarin elke knoop een letter is.
 - Een bestandssysteem als boom: een mappenstructuur modelleren met knopen met een **lijst** van kinderen, en een functie die de totale grootte of het aantal bestanden berekent.
 - Teken de recursieve oproepen van `diepte(boom)` uit voor een kleine boom, op papier.
+-->
