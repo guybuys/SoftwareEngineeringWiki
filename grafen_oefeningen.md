@@ -1,5 +1,7 @@
 # Grafen
 
+Deze lessenreeks is een aanvulling op de online cursus, met als voornaamste bestaansreden om programmeeroefeningen te kunnen maken. De "grafen"-klasse uit 1.4 moeten jullie niet zelf kunnen maken
+
 > **Doel:** je leert wat een graaf is, hoe je een probleem met een graaf modelleert, en hoe je een graaf voorstelt en bevraagt in Python.
 > **Voorkennis:** klassen, functies, lijsten, verzamelingen, dictionaries, loops.
 
@@ -7,7 +9,7 @@
 
 # Deel 1 – Klassikaal
 
-## 1.1 Opwarmer: Secret Santa (op papier, 10 min)
+## 1.1 Opwarmer: Secret Santa
 
 Een vriendengroep van 10 personen organiseert Secret Santa. Regels:
 
@@ -55,15 +57,14 @@ Enkele begrippen:
 | **Gerichte graaf** | bogen hebben een richting (pijl) | Instagram: "A volgt B" |
 | **Gewogen graaf** | bogen hebben een getal (afstand, kost, tijd) | afstand tussen steden |
 
-**Denkvragen (mondeling):**
+**Denkvragen** (mondeling bespreken)**:**
 
 - Een vriendschap op Facebook is wederzijds. "Volgen" op Instagram niet. Welke soort graaf gebruik je telkens?
 - Een boom is ook een graaf. Welke voorwaarden gelden er extra? (Geen cycli, alles verbonden.)
-- Geef drie dingen uit het dagelijks leven die je als graaf kan voorstellen.
 
 ---
 
-## 1.3 Modelleren zonder code (10 min)
+## 1.3 Modelleren zonder code
 
 Teken telkens een graaf. Kies eerst: gericht of niet? Gewogen of niet?
 
@@ -107,9 +108,10 @@ vlaanderen = {
 
 - Hoe zie je in deze dictionary dat de graaf niet gericht is?
 - Hoe vind je de buren van Gent? En de graad van Gent?
-- Wat is het nadeel als we elke boog dubbel moeten typen? → daarom een klasse.
+- Wat is het nadeel als we elke boog dubbel moeten typen?
+> We behouden de manier van opslagen in een dictionary maar we doen dit in een klasse, die gemakkelijker te gebruiken is.
 
-### De klasse (samen live coderen)
+### De klasse
 
 ```python
 class Graaf:
@@ -159,7 +161,8 @@ class Graaf:
 - Waarom delen we door 2 in `aantal_bogen` bij een ongerichte graaf?
 - Waarom is een dictionary hier handiger dan een verzameling tupels? (Snel de buren opvragen, gewichten opslaan.)
 
-### De Vlaamse snelwegen
+### Voorbeelden van onze Graaf klasse
+#### De Vlaamse snelwegen
 
 ```python
 snelwegen = Graaf()
@@ -176,9 +179,9 @@ print(snelwegen.graad("Brussel"))
 print(snelwegen.aantal_bogen())
 ```
 
-**Voorspel eerst, run dan:** wat verwacht je als uitvoer? (Antwoord: 5 knopen, buren van Gent = Kortrijk, Antwerpen, Brussel, graad 3, 6 bogen.)
+**Voorspel eerst, run dan:** wat verwacht je als uitvoer? 
 
-### Een gewogen graaf
+#### Een gewogen graaf
 
 ```python
 steden = Graaf()
@@ -193,7 +196,7 @@ steden.voeg_boog_toe("Houston", "Phoenix", 1892)
 print(steden.verbindingen["Phoenix"])
 ```
 
-### Een gerichte graaf
+#### Een gerichte graaf
 
 ```python
 strava = Graaf(gericht=True)
@@ -268,7 +271,7 @@ print(is_geldige_ronde(santa, ["Arne", "Bea"] + ronde[2:]))  # False
 
 ---
 
-## 1.6 Toepassingen (klassikaal bespreken)
+## 1.6 Toepassingen
 
 | Toepassing | Knopen | Bogen | Soort graaf |
 |---|---|---|---|
@@ -282,7 +285,7 @@ print(is_geldige_ronde(santa, ["Arne", "Bea"] + ronde[2:]))  # False
 
 De graden zijn hier 3, 3, 3 en 5. Euler toonde aan dat zo'n wandeling alleen kan als hoogstens twee knopen een oneven graad hebben. Hier zijn het er vier. **Dus kan het niet.** Laat de leerlingen zelf een eigen graaf bedenken waarbij het wél kan.
 
-**Minimaal opspannende boom.** Je wil alle steden verbinden met zo weinig mogelijk spoor. Doe dit met `steden` op papier: sorteer de bogen van klein naar groot gewicht en voeg ze toe zolang er geen cyclus ontstaat. Wat is het totaal? (Zie oplossingen.)
+**Minimaal opspannende boom.** Je wil alle steden verbinden met zo weinig mogelijk spoor. Doe dit met `steden` op papier: sorteer de bogen van klein naar groot gewicht en voeg ze toe zolang er geen cyclus ontstaat. Wat is het totaal?
 
 ---
 
