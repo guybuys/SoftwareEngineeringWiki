@@ -138,8 +138,15 @@ class Graaf:
         return len(self.verbindingen[knoop])
 
     def aantal_bogen(self):
-        totaal = sum(len(buren) for buren in self.verbindingen.values())
-        return totaal if self.gericht else totaal // 2
+        totaal = 0
+    
+        for buren in self.verbindingen.values():
+            totaal += len(buren)
+    
+        if not self.gericht:
+            totaal //= 2
+    
+        return totaal
 ```
 
 **Bespreek:**
