@@ -149,6 +149,10 @@ class Graaf:
         return totaal
 ```
 
+> [!INFO]
+> `list()` zet de sleutels van een dictionary om naar een gewone lijst,
+> zodat we de knopen als lijst kunnen gebruiken.
+
 **Bespreek:**
 
 - Waarom voegt `voeg_boog_toe` eerst de knopen toe? (Een boog naar een onbestaande knoop kan niet.)
