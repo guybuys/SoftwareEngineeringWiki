@@ -162,6 +162,7 @@ def oef_steden():
 ### Minimaal opspannende boom. 
 
 **Met de beschreven methode**
+
 Gesorteerde gewichten: 
 600 (LA–Phoenix), 
 1743 (Chicago–Houston), 
