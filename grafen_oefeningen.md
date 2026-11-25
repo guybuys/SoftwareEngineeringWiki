@@ -149,9 +149,9 @@ class Graaf:
         return totaal
 ```
 
-> [!INFO]
+> *INFO, NIEUW*
 > `list()` zet de sleutels van een dictionary om naar een gewone lijst,
-> zodat we de knopen als lijst kunnen gebruiken.
+> zodat we de gerourneerde waarden als lijst kunnen gebruiken.
 
 **Bespreek:**
 
