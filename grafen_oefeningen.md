@@ -218,7 +218,10 @@ families = [
     {"Guy"},
     {"Iebe"},
 ]
-personen = [p for familie in families for p in sorted(familie)]
+personen = []
+
+for familie in families:
+    personen.extend(sorted(familie))
 
 def zelfde_familie(a, b):
     ...   # TODO: geef True als a en b in dezelfde familie zitten
